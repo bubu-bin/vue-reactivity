@@ -77,14 +77,3 @@ function ref(value) {
 
   return refObject;
 }
-
-const product = reactive({ quantity: 5, price: 10 });
-const total = ref(0);
-
-watchEffect(() => {
-  total.value = product.price * product.quantity;
-});
-
-console.log(total.value);
-product.price = 20;
-console.log(total.value);

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Reactivity</title>
+    <script src="reactivity.js"></script>
+  </head>
+  <body>
+    <h1>Reactivity</h1>
+    <h2>Counter</h2>
+    <p id="counter"></p>
+    <button onclick="handleDecrement()">-</button>
+    <button onclick="handleIncrement()">+</button>
+    <script>
+      const counter = ref(0);
+      const counterEl = document.getElementById("counter");
+
+      watchEffect(() => {
+        counterEl.innerText = counter.value;
+      });
+
+      const handleIncrement = () => {
+        counter.value++;
+      };
+
+      const handleDecrement = () => {
+        counter.value--;
+      };
+    </script>
+  </body>
+</html>
